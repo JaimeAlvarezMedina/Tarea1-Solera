@@ -1,10 +1,15 @@
 import React from 'react';
+import "./styles/styles.css"
 
 function Equipos(props) {
   return (
-    <div id={props.id} class="cuadro">
-      <h1>{props.ename}</h1>
-      <h2>{props.puntuacion}</h2>
+    <div class="contenedor">
+      <div id={props.id} class="card border-dark text-danger">
+        <div class="card-header border-dark"><h2>{props.ename}</h2></div>
+        <div class="card-body">
+          <h2 class="card-title">{props.puntuacion}</h2>
+        </div>
+      </div>
     </div>
   );
 }
@@ -120,7 +125,7 @@ class Principal extends React.Component {
         </header>
 
         <main>
-          <div onClick={this.detalles}>
+          <div onClick={this.detalles} className="container">
             {this.state.info_equip.map((equipo) => <Equipos id={equipo.id} ename={equipo.name} puntuacion={equipo.puntuacion} />)}
           </div>
         </main>
